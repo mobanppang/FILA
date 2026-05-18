@@ -1,3 +1,26 @@
+
+/* 에로우 버튼의 기본 형태 */
+.arrow_button {
+    border: 1px solid var(--color-on-tertiary-container);
+    background-color: var(--color-white);
+    border-radius: 50px;
+    padding: 14px 34px;
+    color: var(--color-primary);
+    &:hover {
+        background-color: var(--color-on-secondary-fixed);
+        color: var(--color-on-tertiary);
+    }
+}
+.arrow_button.border_none {
+    border: none;
+}
+
+/* root=html문서를 뜻함 */
+:root{
+    --main-y-padding: 100px;
+    --main-x-padding: 40px;
+}
+
 .coupon_info_container{
     text-align: center;
     position: fixed;
@@ -71,26 +94,37 @@ header>nav>ul>li>a{
     font-size: 1.5em;
 }
 /*****************************************************************************/
+
+main>.hero_section>video{
+    width: 100%;
+    height: 100%; /*view(v)의 height(h)의 전체를 의미*/
+    object-fit: cover; /* 화면 전체 꽉 채우고 싶을때 100 100 cover */
+}
+/*****************************************************************************/
+
 .trending_section{
-    padding: 50px;
+    padding: var(--main-y-padding) var(--main-x-padding);
 }
 .trending_section div{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 .trending_section div>ul{
     display: flex;
 }
 .trending_section>ul{
     display: flex;
+    padding-top: 20px;
 }
-.trending_section>ul>li{
+.trending_section>ul>li {
     display: flex;
-    padding-right: 16px;
     cursor: pointer;
     width: 400px;
+}
+.trending_section>ul>li:not(:last-child){
+    margin-right: 16px;
 }
 .trending_section>ul>li>a{
     text-decoration: none;
@@ -112,9 +146,9 @@ header>nav>ul>li>a{
 .trending_section h2{
     font-size: var(--font-size-display-lg);
     font-weight: bold;
-    /*padding-bottom: 10px;*/
+    padding-bottom: 10px;
 }
-.trending_section button{
+.trending_section div ul li>button{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -126,46 +160,265 @@ header>nav>ul>li>a{
         color: var(--color-primary);
     }
 }
-.trending_section .arrow_button{
-    border: 1px solid var(--color-on-tertiary-container);
-    border-radius: 50px;
-    padding: 10px 34px;
+.trending_section div>.arrow_button:first-child{
     margin-right: 10px;
-    color: var(--color-primary);
-    &:hover{
-        background-color: var(--color-on-secondary-fixed);
-        color: var(--color-on-tertiary);
-    }
+}
+.trending_section ul li a strong{
+    font-size: 1.2em;
 }
 
 
-main>.hero_section>video{
-    width: 100vw;
-    height: 100vh; /*view(v)의 height(h)의 전체를 의미*/
-    object-fit: cover; /* 화면 전체 꽉 채우고 싶을때 100 100 cover */
+/*****************************************************************************/
+
+.edit_section{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 150px;
+    background-color: #1a1c1c;
+    position: relative;
+}
+.edit_section>h2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18em;
+    color: white;
+}
+.edit_section >.image_container{
+    position: relative;
+    flex: 1;
+}
+.edit_section .image_container >img.main{
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+}
+.edit_section .image_container >img.sub{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    transform: translateY(-50%);
+}
+.edit_section >.label_container{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-left: 5em;
+}
+.edit_section >.label_container a{
+    font-size: 3rem;
+    line-height: 1.5;
+    color: var(--color-white);
+    text-decoration: none;
+    margin-right: 10px;
+}
+.edit_section >.label_container a:not(:last-child)::after{
+    content: ',';
+}
+
+/************************************************************************/
+.information1_section{
+    padding: var(--main-y-padding) var(--main-x-padding);
+}
+.information1_section>h2{
+    font-size: 5em;
+    padding-bottom: 20px;
+}
+.information1_section >div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1000px;
+    gap: 16px;
+    position: relative;
+}
+
+.information1_section a{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.information1_section .information{
+    position: absolute;
+    /*left: 0;*/
+    /*right: 0;*/
+    width: 100%;
+    bottom: 0;
+    padding: 40px;
+    color: white;
+}
+
+.information1_section .information>h3{
+    font-size: 3rem;
+    padding-bottom: 10px;
+}
+.information1_section .information>p{
+    font-size: 1.5rem;
+}
+
+.information1_section button{
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+}
+
+/***********************************************/
+.information2_section{
+    display: flex;
+    background-color: var(--color-black);
+    margin: 0 40px;
+}
+.information2_section img.logo{
+    width: 80px;
+    height: 124px;
+    padding-bottom: 40px;
+}
+
+.information2_section>div:first-child{
+    flex: 1;
+    padding: 50px 250px 50px 50px;
+}
+.information2_section>div>p.information{
+    font-size: 3rem;
+    color: var(--color-white);
+    padding-bottom: 40px;
+}
+.information2_section>div:last-child{
+    flex: 1;
+}
+.information2_section>div:last-child img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/****************************************************/
+.information3_section{
+    padding: var(--main-y-padding) var(--main-x-padding);
+}
+.information3_section > p{
+    text-align: center;
+    font-size: var(--font-size-headline-lg-mobile);
+    margin-bottom: 32px;
+}
+.information3_section .img_container{
+    display: flex;
+}
+.information3_section .img_container img{
+    width: 100%;
 }
 
 
+/*************************************************************/
+.information4_section{
+    padding: var(--main-y-padding) var(--main-x-padding);
+}
+.information4_section>div{
+    display: flex;
+    justify-content: space-between;
+}
+.information4_section>div>h2{
+    font-size: var(--font-size-display-lg);
+    padding-bottom: 20px;
+}
+.information4_section>div>button{
+    align-self: center; /* 버튼 크기 원래대로 */
+}
+.information4_section>.slide_container{
+    display: flex;
+}
+.information4_section .slide_container{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.information4_section .slide_container > li{
+    flex-basis: 500px;
+    flex-shrink: 0;
+    cursor: pointer;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.information4_section .slide_container > li:not(:last-child){
+    margin-right: 20px;
+}
+.information4_section .slide_container > li > img{
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+.information4_section .slide_wrapper{
+    overflow: hidden;
+}
 
+/***********************************************/
+footer{
+    background-color: #1b1b1b;
+    color: var(--color-white);
+    padding: var(--main-y-padding) var(--main-x-padding);
+    font-size: 0.8em;
+}
+footer a{
+    color: var(--color-white);
+}
+footer>div{
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+}
+footer .site_nav{
+    display: flex;
+}
+footer .site_nav h4{
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+footer .site_nav>div{
+    width: 250px;
+}
+footer .site_nav ul{
+    display: flex;
+    flex-direction: column;
+}
+footer .site_nav li{
+    margin-bottom: 5px;
+    line-height: 2em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*main>.image_section1{*/
-/*    display: flex;*/
-/*}*/
-/*main>.image_section1>img{*/
-/*    width: 100%;*/
-/*}*/
-
+footer .sns_nav ul{
+    display: flex;
+    padding-bottom: 10px;
+}
+footer .sns_nav ul li{
+    margin-right: 4px;
+    font-size: 1.5em;
+    /*background-color: #93000a;*/
+}
+footer .sns_nav a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    /*border: 1px solid #4c4546;*/
+    border-radius: 50%;
+    text-decoration: none;
+}
+footer .user_information span{
+    display: block;
+    /*text-align: right;*/
+    padding-bottom: 4px;
+}
+footer hr{
+    margin: 40px 0;
+}
+.site_information{
+    text-align: right;
+}
