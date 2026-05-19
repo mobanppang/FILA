@@ -72,6 +72,11 @@ ul{
 a{
     text-decoration: none;
 }
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 /* --변수 설정*/
 
 

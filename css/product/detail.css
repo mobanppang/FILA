@@ -1,0 +1,277 @@
+/*@import url('../public.css');*/
+
+.tag{
+    /*background-color: blue;*/
+    border: 1px solid var(--color-on-tertiary-container);
+    padding: 3px 8px;
+    border-radius: 50px;
+    font-size: var(--font-size-label-caps);
+}
+/*******************************************/
+.accordion{
+    border: 1px solid var(--color-tertiary);
+    border-radius: 28px;
+    padding: 20px 16px;
+    margin: 20px 0;
+}
+.accordion .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px 10px;
+    font-size: var(--font-size-title-md);
+}
+.accordion > .body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.accordion > .body > button{
+    width: 30%;
+    border-radius: 50px;
+    border: 1px solid var(--color-surface-variant);
+    padding: 80px 0;
+    margin: 4px;
+}
+/*********************************************/
+#main{
+    display: flex;
+    height: 100vh;
+    /*background-color: #93000a;*/
+}
+#main > div{
+    flex: 1;
+    height: 100%;
+    /*background-color: beige;*/
+}
+#main > div > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#main > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main .information{
+    width: 60%;
+    /*background-color: chartreuse;*/
+}
+#main .information .header{
+    display: flex;
+    justify-content: space-between;
+}
+#main .information .title > h1{
+    font-size: 2.2em;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+#main .information .header .share{
+    font-size: 1.5em;
+}
+
+/*******************************************/
+#main .information .group li{
+    /*background-color: #93000a;*/
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 30px;
+    &:first-child{
+        border-bottom: 1px solid black;
+    }
+}
+/********************************************/
+#main .information .size > .body > button{
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid var(--color-surface-variant);
+    padding: 10px 8px;
+    margin: 4px;
+}
+/********************************************/
+#main .information .cart{
+    background-color: var(--color-tertiary);
+    border-radius: 50px;
+    padding: 20px 40px;
+}
+#main .information .cart > button{
+    width: 100%;
+    /*background-color: #93000a;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-on-tertiary);
+    font-size: var(--font-size-title-md);
+}
+
+/****************************************************************/
+
+#detail{
+    display: flex;
+    padding: 100px;
+}
+#detail > div{
+    flex: 1;
+}
+#detail .img_container{
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: grid;
+    width: 100%; /* 정비율 하려면 가로 100% 여야함 */
+    aspect-ratio: 1/1; /* 가로 세로 정비율 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-self: flex-start; /* 맨위에 붙이기. 세로 늘어짐x */
+}
+#detail .img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#detail >.information{
+    padding-left: 100px;
+}
+#detail >.information > .product_information{
+    margin-bottom: 60px;
+}
+
+#detail >.information > .product_information > p{
+    font-size: var(--font-size-body-lg);
+    padding-bottom: 30px;
+    line-height: 1.5;
+}
+#detail >.information > .product_information > span{
+    display: block;
+    font-size: var(--font-size-body-sm);
+    color: var(--color-on-tertiary-container);
+    padding-bottom: 4px;
+}
+#detail .accordion{
+    border: none;
+    padding: unset;
+    margin: 10px 0;
+}
+#detail .accordion .header{
+    font-size: var(--font-size-body-md);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-tertiary);
+}
+#detail .accordion> .body{
+    display: block;
+}
+#detail .accordion > .membership li{
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 18px 0;
+    &::before{
+        content: "\2713";
+        margin-right: 10px;
+        font-weight: bold;
+    }
+}
+
+#detail .accordion > .product_information > div{
+    display: flex;
+    margin: 18px 0;
+}
+#detail .accordion > .product_information span:first-child{
+    width: 140px;
+    font-weight: var(--font-weight-display-lg);
+}
+
+/***********************************************/
+
+#detail .accordion .fit_container{
+    display: flex;
+    margin: 60px 0;
+}
+
+#detail .accordion .fit_container > div{
+    flex: 1;
+    border: 2px solid var(--color-on-tertiary-container);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--color-primary);
+    &:not(:last-child){
+        margin-right: 20px;
+        color: var(--color-on-tertiary-container);
+        border: 1px solid var(--color-primary-fixed-dim);
+    }
+}
+#detail .accordion .fit_container > div > span{
+    display: block;
+    text-align: center;
+    margin: 10px;
+    font-size: var(--font-size-label-caps);
+}
+#detail .accordion .fit_container > div > span:first-child{
+    font-size: var(--font-size-body-sm);
+    font-weight: 900;
+}
+/******************************************/
+#detail .accordion{
+    /*margin-bottom: 60px;*/
+}
+#detail .accordion .spac_container{
+    margin-bottom: 60px;
+}
+#detail .accordion .spac_container .spac > b{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#detail .accordion .progress_container{
+    position: relative;
+}
+#detail .accordion .progress.parent{
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-surface-variant);
+    overflow: hidden;
+}
+#detail .accordion .progress.child{
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-on-primary-fixed);
+    animation-name: progressbar;
+    animation-duration: 1s;
+    transform: translateX(-50%);
+}
+@keyframes progressbar{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+#detail .accordion .progress_container span{
+    padding-top: 8px;
+    position: absolute;
+    color: var(--color-on-primary-container);
+    font-size: var(--font-size-body-sm);
+    &:nth-child(1){
+        left: 0;
+    }
+    &:nth-child(2){
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &:nth-child(3){
+        right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
