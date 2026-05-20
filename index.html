@@ -407,62 +407,62 @@
         </div>
     </div>
 
-<!--    <div class="modal_container_notice">-->
-<!--        <div class="notice_popup">-->
-<!--            <div class="imgbox">-->
-<!--                <img src="../img/noticepopup.webp" height="1250" width="1000"/>-->
-<!--                <button class="x-mark" type="button">-->
-<!--                    <i class="fa-solid fa-xmark"></i>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--            <div class="checkbox-container">-->
-<!--                <input type="checkbox" id="today-hide">-->
-<!--                <label for="today-hide">오늘 하루 보지 않기</label>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="modal_container_notice">
+        <div class="notice_popup">
+            <div class="imgbox">
+                <img src="../img/noticepopup.webp" height="1250" width="1000"/>
+                <button class="x-mark" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="today-hide">
+                <label for="today-hide">오늘 하루 보지 않기</label>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
 
-<!--<script>-->
-<!--    const noticeModal = document.querySelector('.modal_container_notice');-->
-<!--    const closeButton = document.querySelector('.x-mark');-->
-<!--    const todayHideCheckbox = document.querySelector('#toady-hide');-->
+<script>
+    const noticeModal = document.querySelector('.modal_container_notice');
+    const closeButton = document.querySelector('.x-mark');
+    const todayHideCheckbox = document.querySelector('#toady-hide');
 
-<!--    const NOTICE_HIDE_KEY = 'noticeHideUntil';-->
+    const NOTICE_HIDE_KEY = 'noticeHideUntil';
 
-<!--    function getTodayMidnight() {-->
-<!--        const tomorrow = new Date();-->
-<!--        tomorrow.setDate(tomorrow.getDate() + 1);-->
-<!--        tomorrow.setHours(0, 0, 0, 0);-->
-<!--        return tomorrow.getTime();-->
-<!--    }-->
+    function getTodayMidnight() {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+        return tomorrow.getTime();
+    }
 
-<!--    function closeNoticeModal() {-->
-<!--        if (todayHideCheckbox.checked) {-->
-<!--            localStorage.setItem(NOTICE_HIDE_KEY, getTodayMidnight());-->
-<!--        }-->
+    function closeNoticeModal() {
+        if (todayHideCheckbox.checked) {
+            localStorage.setItem(NOTICE_HIDE_KEY, getTodayMidnight());
+        }
 
-<!--        noticeModal.style.display = 'none';-->
-<!--    }-->
+        noticeModal.style.display = 'none';
+    }
 
-<!--    function checkNoticeModal() {-->
-<!--        const hideUntil = localStorage.getItem(NOTICE_HIDE_KEY);-->
-<!--        const now = new Date().getTime();-->
+    function checkNoticeModal() {
+        const hideUntil = localStorage.getItem(NOTICE_HIDE_KEY);
+        const now = new Date().getTime();
 
-<!--        if (hideUntil && now < Number(hideUntil)) {-->
-<!--            noticeModal.style.display = 'none';-->
-<!--        }-->
-<!--    }-->
+        if (hideUntil && now < Number(hideUntil)) {
+            noticeModal.style.display = 'none';
+        }
+    }
 
-<!--    checkNoticeModal();-->
+    checkNoticeModal();
 
-<!--    closeButton.addEventListener('click', closeNoticeModal);-->
+    closeButton.addEventListener('click', closeNoticeModal);
 
-<!--    noticeModal.addEventListener('click', function (event) {-->
-<!--        if (event.target === noticeModal) {-->
-<!--            closeNoticeModal();-->
-<!--        }-->
-<!--    });-->
-<!--</script>-->
+    noticeModal.addEventListener('click', function (event) {
+        if (event.target === noticeModal) {
+            closeNoticeModal();
+        }
+    });
+</script>
