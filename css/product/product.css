@@ -178,9 +178,11 @@ main .item_section .item_page .item_card > ul.item_option > li img{
 .item_section .pagination{
     display: flex;
     justify-content: center;
-    /*gap: 6px;*/
 }
-.item_section .pagination > li a{
+.item_section .page_list{
+    display: flex;
+}
+.item_section .page_list > li a{
     width: 50px;
     height: 32px;
     display: flex;
@@ -190,11 +192,11 @@ main .item_section .item_page .item_card > ul.item_option > li img{
     font-size: var(--font-size-body-lg);
     color: var(--color-black);
 }
-.item_section .pagination li:first-child a{
+.item_section .page_list li:first-child a{
     background-color: var(--color-black);
     border-radius: 50px;
 }
-.item_section .pagination li:first-child span{
+.item_section .page_list li:first-child button{
     color: var(--color-white);
 }
 
