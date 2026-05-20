@@ -30,7 +30,7 @@
     width: 100%;
     line-height: 32px;
     z-index: 99;
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-label-caps);
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -51,7 +51,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 50px;
 }
 header>.home_btn>img{
     width: 90%;
