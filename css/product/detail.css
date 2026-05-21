@@ -264,14 +264,194 @@
 }
 
 
+/*********************************************************/
+
+section > h2{
+    font-size: var(--font-size-headline-lg-mobile);
+    padding-bottom: 16px;
+}
+
+#checkmodel{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 50px 100px;
+}
+#checkmodel .card_container{
+    display: flex;
+    /*padding: 40px 0;*/
+}
+#checkpoint .card{
+    display: inline-block;
+    width: 470px;
+    margin: 0 40px 100px 0;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+#checkpoint .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#checkpoint .card h3{
+    font-size: var(--font-size-headline-lg-mobile);
+    padding: 30px 0 20px;
+}
+#checkpoint .card p{
+    font-size: var(--font-size-title-md);
+}
 
 
 
+#model_cut p{
+    font-size: var(--font-size-title-md);
+    padding-bottom: 40px;
+    color: var(--color-outline-variant);
+}
+#model_cut > div{
+    display: flex;
+}
+
+#model_cut .card{
+    display: inline-block;
+    width: 470px;
+    margin: 0 40px 100px 0;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+#model_cut .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/***************************************************/
+
+#review{
+    padding: 100px;
+}
+
+#review h2{
+    font-size: var(--font-size-title-md);
+}
+
+#review > button{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: var(--font-size-body-sm);
+    font-weight: 900;
+    padding: 14px 100px;
+    border-radius: 4px;
+}
+
+#review .rating{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-background);
+    padding: 100px 0;
+}
+
+#review .average_rating{
+    text-align: center;
+    flex: 1;
+}
+#review .average_rating > h3{
+    display: inline-block;
+    font-size: var(--font-size-display-lg);
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+#review .average_rating > span{
+    display: block;
+    &:not(:last-child){
+        padding-bottom: 16px;
+    }
+}
+
+#review .total_rating{
+    display: flex;
+    flex: 2;
+    /*background-color: #93000a;*/
+}
+#review .total_rating >div{
+    flex: 1;
+    text-align: center;
+}
+#review .total_rating .stars{
+    color: #d92d0f;
+}
+#review .photo_video > .header{
+    display: flex;
+    justify-content: space-between;
+}
+#review .photo_video > ul{
+    display: grid;
+    grid-template-columns: repeat(10, minmax(100px, 1fr));
+}
+#review .photo_video ul .img_container{
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    overflow: hidden;
+    &:not(:last-child){
+        margin-right: 10px;
+    }
+}
+#review .photo_video img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#review .filter > div{
+    display: flex;
+    justify-content: space-between;
+}
+#review .filter .search{
+    background-color: white;
+    border: 1px solid #1b1b1b;
+    border-radius: 10px;
+    padding: 8px;
+
+}
+#review .filter .search > input{
+    border: none;
+    background: none;
+}
+#review .reviews .item{
+    display: flex;
+}
+#review .reviews .item .imgs{
+    display: flex;
+}
+#review .reviews .item .imgs > .img-btn{
+    width: 100px;
+    height: 100px;
+}
+#review .reviews .item .imgs > .img-btn > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.suer_icon{
+    display: inline-block; /* a 태그는 위드 하이트 안먹힘. 인라인 블럭 해야함 */
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #1b1b1b;
+}
+
+.suer_icon > img{
+
+}
 
 
-
-
-
-
-
-
+/*********************************************/
