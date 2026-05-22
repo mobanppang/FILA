@@ -478,18 +478,24 @@ section > h2{
     font-size: var(--font-size-label-caps);
     align-content: center;
 }
+#review .reviews .items{
+    display: flex;
+    border-bottom: 1px solid var(--color-inverse-on-surface);
+}
 
-#review .reviews .item{
+#review .reviews .items .imgs{
     display: flex;
+    gap: 10px;
 }
-#review .reviews .item .imgs{
+#review .reviews .items .imgs > .img-btn{
     display: flex;
-}
-#review .reviews .item .imgs > .img-btn{
     width: 100px;
     height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    /*margin-left: 10px;*/
 }
-#review .reviews .item .imgs > .img-btn > img{
+#review .reviews .items .imgs > .img-btn > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -498,6 +504,10 @@ section > h2{
     display: flex;
     align-items: center;
     gap: 6px;
+    margin: 10px 0;
+}
+.meta{
+    margin-bottom: 20px;
 }
 .suer_icon{
     display: inline-block; /* a 태그는 위드 하이트 안먹힘. 인라인 블럭 해야함 */
@@ -511,6 +521,25 @@ section > h2{
 .suer_icon > img{
 
 }
+.option{
+    color: var(--color-on-tertiary-container);
+    border-left: 2px solid var(--color-inverse-primary);
+    padding-left: 6px;
+    margin-bottom: 20px;
+}
+.option span:nth-child(2){
+    padding-left: 3px;
+    color: var(--color-black);
+}
+.item{
+    width: 70%;
+}
+.review_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 
 /*********************************************/
