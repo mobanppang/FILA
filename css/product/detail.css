@@ -1,5 +1,12 @@
 /*@import url('../public.css');*/
 
+:root{
+    --main-y-padding: 40px;
+    --main-x-padding: 60px;
+}
+
+/******************************************/
+
 .tag{
     /*background-color: blue;*/
     border: 1px solid var(--color-on-tertiary-container);
@@ -109,7 +116,7 @@
 
 #detail{
     display: flex;
-    padding: 100px;
+    padding: var(--main-y-padding) var(--main-x-padding);
 }
 #detail > div{
     flex: 1;
@@ -274,7 +281,7 @@ section > h2{
 #checkmodel{
     background-color: var(--color-black);
     color: var(--color-white);
-    padding: 50px 100px;
+    padding: var(--main-y-padding) var(--main-x-padding);
 }
 #checkmodel .card_container{
     display: flex;
@@ -331,7 +338,7 @@ section > h2{
 /***************************************************/
 
 #review{
-    padding: 100px;
+    padding: var(--main-y-padding) var(--main-x-padding);
 }
 
 #review h2{
@@ -392,36 +399,49 @@ section > h2{
 #review .total_rating .stars{
     color: #d92d0f;
 }
-
-
 #review .photo_video{
     border-bottom: 1px solid var(--color-inverse-on-surface);
     padding: 0 0 50px;
-    margin-bottom: 20px 0 0;
+    margin-bottom: 20px 0;
 }
-
 #review .photo_video > .header{
     display: flex;
     justify-content: space-between;
     padding-bottom: 14px;
 }
-
 #review .photo_video > ul{
     display: grid;
-    grid-template-columns: repeat(10, minmax(100px, 1fr));
+    grid-template-columns: repeat(12, minmax(100px, 1fr));
     gap: 10px;
 }
 #review .photo_video ul .img_container{
     aspect-ratio: 1/1;
-    border-radius: 10px;
+    border-radius: 4px;
     overflow: hidden;
+    position: relative;
+}
+#review .photo_video ul .img_container:last-child::before{
+    content: "";
+    background-color: rgb(0 0 0 / 0.5);
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+#review .photo_video ul .img_container:last-child::after{
+    content: "전체보기";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
 }
 #review .photo_video img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 #review .filter > div:first-child{
     display: flex;
     justify-content: space-between;
@@ -478,38 +498,76 @@ section > h2{
     font-size: var(--font-size-label-caps);
     align-content: center;
 }
+#review .reviews{
+    /*padding: 20px 0;*/
+}
 #review .reviews .items{
-    display: flex;
     border-bottom: 1px solid var(--color-inverse-on-surface);
 }
-
-#review .reviews .items .imgs{
+#review .reviews .items .item{
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+}
+#review .reviews .items .item .review_container{
+    flex: 3;
+}
+#review .reviews .items .item .review_container .date_text .option{
+    color: var(--color-on-tertiary-container);
+    border-left: 2px solid var(--color-inverse-primary);
+    padding-left: 6px;
+    margin-bottom: 10px;
+}
+#review .reviews .items .item .review_container .date_text .option span:nth-child(2){
+    padding-left: 3px;
+    color: var(--color-black);
+}
+#review .reviews .items .item .review_container .date_text  .meta{
+    margin-bottom: 16px;
+}
+#review .reviews .items .item .review_container .content{
+    display: block;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+#review .reviews .items .item .imgs{
     display: flex;
     gap: 10px;
 }
-#review .reviews .items .imgs > .img-btn{
-    display: flex;
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
+#review .reviews .items .item .imgs > .img-btn{
+    width: 160px;
+    height: 160px;
+    border-radius: 4px;
     overflow: hidden;
-    /*margin-left: 10px;*/
 }
-#review .reviews .items .imgs > .img-btn > img{
+#review .reviews .items .item .imgs > .img-btn > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.user{
+#review .reviews .items .item .actions_btn{
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    align-items: flex-end;
+    gap: 4px;
+}
+#review .reviews .items .item .actions_btn button span img{
+    display: inline-block;
+    align-items: flex-end;
+    gap: 4px;
+}
+#review .reviews .items .item .review_info{
+    flex: 1;
+    border-left: 1px solid var(--color-inverse-primary);
+    padding-left: 40px;
+}
+#review .reviews .items .item .review_info .user{
     display: flex;
     align-items: center;
     gap: 6px;
-    margin: 10px 0;
 }
-.meta{
-    margin-bottom: 20px;
-}
-.suer_icon{
+#review .reviews .items .item .user .user_icon{
     display: inline-block; /* a 태그는 위드 하이트 안먹힘. 인라인 블럭 해야함 */
     width: 24px;
     height: 24px;
@@ -517,29 +575,16 @@ section > h2{
     border-radius: 50%;
     background-color: #1b1b1b;
 }
-
-.suer_icon > img{
-
-}
-.option{
+#review .reviews .items .item .review_info .user_rank{
+    display: inline-block;
     color: var(--color-on-tertiary-container);
-    border-left: 2px solid var(--color-inverse-primary);
-    padding-left: 6px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin: 16px 0;
 }
-.option span:nth-child(2){
-    padding-left: 3px;
-    color: var(--color-black);
+#review .reviews .items .item .review_info .date{
+    display: block;
+    color: var(--color-on-tertiary-container);
+    font-size: 13px;
 }
-.item{
-    width: 70%;
-}
-.review_container{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-
 
 /*********************************************/
