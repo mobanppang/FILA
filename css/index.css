@@ -117,15 +117,53 @@ main>.hero_section>video{
 .trending_section div>ul{
     display: flex;
 }
-.trending_section>ul{
-    display: flex;
+.trending_section > ul[class*="product_list_"] {
+    display: none;
     padding-top: 20px;
+}
+
+.trending_section > ul[class*="product_list_"].active {
+    display: flex;
+}
+
+/*.trending_section>ul{*/
+/*    display: flex;*/
+/*    padding-top: 20px;*/
+/*}*/
+
+/*.trending_section>ul.product_list_01{*/
+/*    display: flex;*/
+/*}*/
+/*.trending_section>ul.product_list_02{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_03{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_04{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_05{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_06{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_07{*/
+/*    display: none;*/
+/*}*/
+/*.trending_section>ul.product_list_08{*/
+/*    display: none;*/
+/*}*/
+.trending_section > ul[class^="product_list_"].active {
+    display: flex;
 }
 .trending_section>ul>li {
     display: flex;
     cursor: pointer;
     width: 400px;
 }
+
 .trending_section>ul>li:not(:last-child){
     margin-right: 16px;
 }
@@ -163,10 +201,11 @@ main>.hero_section>video{
         color: var(--color-primary);
     }
 }
-.trending_section div ul li>button.active{
+.trending_section div>ul>li>button.active{
     color: var(--color-primary);
     border-bottom: 2px solid var(--color-primary);
 }
+
 .trending_section div ul.active{
     display: block;
 }
@@ -434,4 +473,20 @@ footer hr{
 }
 .site_information{
     text-align: right;
+}
+
+/*********************** label_container 트렌지션 추가 ************************************/
+.edit_section > h2,
+.edit_section > .image_container,
+.edit_section > .label_container {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.edit_section > h2.show,
+.edit_section > .image_container.show,
+.edit_section > .label_container.show {
+    opacity: 1;
+    transform: translateY(0);
 }
