@@ -163,13 +163,19 @@ main>.hero_section>video{
         color: var(--color-primary);
     }
 }
+.trending_section div ul li>button.active{
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+.trending_section div ul.active{
+    display: block;
+}
 .trending_section div>.arrow_button:first-child{
     margin-right: 10px;
 }
 .trending_section ul li a strong{
     font-size: 1.2em;
 }
-
 
 /*****************************************************************************/
 
