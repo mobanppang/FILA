@@ -1,4 +1,9 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
 /* 에로우 버튼의 기본 형태 */
 .arrow_button {
     border: 1px solid var(--color-on-tertiary-container);
@@ -23,13 +28,13 @@
 
 .coupon_info_container{
     text-align: center;
-    position: fixed;
+    /*position: fixed;*/
     background-color: #0808ff;
     color: var(--color-primary-fixed);
     height: 32px;
     width: 100%;
     line-height: 32px;
-    z-index: 99;
+    /*z-index: 9;*/
     font-size: var(--font-size-label-caps);
     font-weight: 700;
     letter-spacing: 1px;
@@ -46,6 +51,7 @@
 /***************************************************************************/
 header{
     position: absolute;
+    z-index: 99;
     top: 30px;
     width: 100%;
     display: flex;
@@ -98,11 +104,38 @@ header>nav>ul>li>a{
 }
 /*****************************************************************************/
 
-main>.hero_section>video{
+main>.hero_section{
+    position: relative;
+    z-index: 0;
     width: 100%;
-    height: 100%; /*view(v)의 height(h)의 전체를 의미*/
-    object-fit: cover; /* 화면 전체 꽉 채우고 싶을때 100 100 cover */
+    height: 100vh;
+    overflow: hidden;
 }
+main .button_container{
+    position: absolute;
+    z-index: 100;
+    bottom: 50px;
+    right: 50px;
+}
+main .button_container button{
+    border: 1px solid var(--color-white);
+    background: transparent;
+    border-radius: 50px;
+    padding: 14px 34px;
+    color: var(--color-white);
+    &:hover {
+        background-color: rgb(255 255 255 / 0.1);
+        color: var(--color-white);
+    }
+    margin-left: 10px;
+}
+main>.hero_section .carousel{
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    height: 100%;
+}
+
 /*****************************************************************************/
 
 .trending_section{
@@ -323,7 +356,7 @@ main>.hero_section>video{
 .information2_section{
     display: flex;
     background-color: var(--color-black);
-    margin: 0 40px;
+    /*margin: 0 40px;*/
 }
 .information2_section img.logo{
     width: 80px;
@@ -350,12 +383,13 @@ main>.hero_section>video{
 }
 /****************************************************/
 .information3_section{
-    padding: var(--main-y-padding) var(--main-x-padding);
+    padding: var(--main-y-padding) 0;
 }
 .information3_section > p{
     text-align: center;
     font-size: var(--font-size-headline-lg-mobile);
-    margin-bottom: 32px;
+    margin-bottom: var(--main-y-padding);
+    line-height: 1.5;
 }
 .information3_section .img_container{
     display: flex;
@@ -367,7 +401,7 @@ main>.hero_section>video{
 
 /*************************************************************/
 .information4_section{
-    padding: var(--main-y-padding) var(--main-x-padding);
+    padding: 0 var(--main-x-padding) var(--main-y-padding);
 }
 .information4_section>div{
     display: flex;
@@ -379,6 +413,7 @@ main>.hero_section>video{
 }
 .information4_section>div>button{
     align-self: center; /* 버튼 크기 원래대로 */
+    margin-bottom: 20px;
 }
 .information4_section>.slide_container{
     display: flex;

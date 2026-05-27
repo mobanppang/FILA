@@ -11,6 +11,7 @@
     <link rel="icon" href="../../img/logo/header_logo.webp">
 
     <script src="https://kit.fontawesome.com/d19fdaba43.js" crossorigin="anonymous" defer></script>
+    <script src="js/carousel/carousel.js" defer></script>
 
 </head>
 <body>
@@ -42,7 +43,26 @@
     </header>
     <main>
         <section class="hero_section">
-            <video muted loop autoplay src="https://www.fila.co.kr/cdn/shop/videos/c/vp/ec48bb7a461b41dea868466108b526e5/ec48bb7a461b41dea868466108b526e5.HD-1080p-7.2Mbps-81825759.mp4?v=0"></video>
+            <div class="button_container">
+                <button type="button" class="arrow_button"><i class="fa-solid fa-arrow-left-long"></i></button>
+                <button type="button" class="arrow_button"><i class="fa-solid fa-arrow-right-long"></i></button>
+            </div>
+            <ul class="carousel">
+                <li class="slide">
+                    <video class="hero_video" muted loop autoplay src="https://www.fila.co.kr/cdn/shop/videos/c/vp/2d2319ff42ad47578bfdc01800606d5f/2d2319ff42ad47578bfdc01800606d5f.HD-1080p-7.2Mbps-84613462.mp4?v=0"></video>
+                </li>
+                <li class="slide">
+<!--                    <video class="hero_video" muted loop autoplay src="https://www.fila.co.kr/cdn/shop/videos/c/vp/ec48bb7a461b41dea868466108b526e5/ec48bb7a461b41dea868466108b526e5.HD-1080p-7.2Mbps-81825759.mp4?v=0"></video>-->
+                    <img class="hero_video" src="https://www.fila.co.kr/cdn/shop/files/FILA_1911_echappe_main_banner_1.jpg?v=1778638770&width=2000" alt="">
+                </li>
+                <li class="slide">
+                    <video class="hero_video" muted loop autoplay src="https://www.fila.co.kr/cdn/shop/videos/c/vp/ea83f4b6065045a980dc43953e0665cc/ea83f4b6065045a980dc43953e0665cc.HD-1080p-7.2Mbps-82823302.mp4?v=0"></video>
+
+                </li>
+                <li class="slide">
+                    <video class="hero_video" muted loop autoplay src="https://www.fila.co.kr/cdn/shop/videos/c/vp/ec48bb7a461b41dea868466108b526e5/ec48bb7a461b41dea868466108b526e5.HD-1080p-7.2Mbps-81825759.mp4?v=0"></video>
+                </li>
+            </ul>
         </section>
         <section class="trending_section">
             <h2>Trending Now</h2>
@@ -550,7 +570,7 @@
         <section class="information3_section">
             <p>
                 <b>과감한 컬러 미학으로 휠라만의 헤리티지를 쌓아온 115년</b>
-                <br><br>
+                <br>
                 휠라의 스테디셀러 에샤페 역시, 감각적인 컬러 팔레트로
                 <br>
                 다양한 라인업을 선보이며 꾸준히 사랑 받고 있습니다.
@@ -791,7 +811,6 @@
 </html>
 
 <script>
-
     //////////////////main_notice popup///////////////////////////////
     const noticeModal = document.querySelector('.modal_container_notice');
     const closeButton = document.querySelector('.x-mark');
@@ -913,5 +932,7 @@
 
     window.addEventListener('scroll', showEditSectionAnimation);
     showEditSectionAnimation();
+
+
 </script>
 

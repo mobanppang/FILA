@@ -182,7 +182,7 @@ main .item_section .item_page .item_card > ul.item_option > li img{
 .item_section .page_list{
     display: flex;
 }
-.item_section .page_list > li a{
+.item_section .page_list > li{
     width: 50px;
     height: 32px;
     display: flex;
@@ -192,15 +192,31 @@ main .item_section .item_page .item_card > ul.item_option > li img{
     font-size: var(--font-size-body-lg);
     color: var(--color-black);
 }
-.item_section .page_list li:first-child a{
-    background-color: var(--color-black);
-    border-radius: 50px;
+.item_section .page_list > li button{
+    width: 50px;
+    height: 32px;
+    display: block;
 }
-.item_section .page_list li:first-child button{
-    color: var(--color-white);
-}
+/*.item_section .page_list li:first-child a{*/
+/*    background-color: var(--color-black);*/
+/*    border-radius: 50px;*/
+/*}*/
+/*.item_section .page_list li:first-child button{*/
+/*    color: var(--color-white);*/
+/*}*/
 
 
 /****************************************************/
 
+.item_page{
+    display: none !important;
+}
 
+.item_page.active{
+    display: grid !important;
+}
+.item_section .pagination .page_list li .active{
+    background-color: var(--color-black);
+    border-radius: 50px;
+    color: var(--color-white);
+}

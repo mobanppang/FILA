@@ -12,7 +12,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0 0 0 / 0.8);
+    background-color: rgba(0 0 0 / 0.6);
 }
 .modal{
     display: flex;
@@ -121,7 +121,7 @@
     font-size: var(--font-size-title-md);
 }
 .modal .submit_container{
-    padding: var(--modal-form-pading);
+    padding: 0 var(--modal-form-pading);
 }
 .modal .submit_container>button{
     display: block;
