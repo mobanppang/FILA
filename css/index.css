@@ -28,13 +28,13 @@
 
 .coupon_info_container{
     text-align: center;
-    /*position: fixed;*/
+    position: fixed;
     background-color: #0808ff;
     color: var(--color-primary-fixed);
     height: 32px;
     width: 100%;
     line-height: 32px;
-    /*z-index: 9;*/
+    z-index: 999;
     font-size: var(--font-size-label-caps);
     font-weight: 700;
     letter-spacing: 1px;
@@ -60,9 +60,9 @@ header{
     padding: 10px 50px;
 }
 header>.home_btn>img{
-    width: 90%;
-    height: 90%;
-    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
 }
 header>ul{
     display: flex;
@@ -525,3 +525,126 @@ footer hr{
     opacity: 1;
     transform: translateY(0);
 }
+
+/****************************** 반응형 ****************************************/
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (max-width: 768px) {
+    .trending_section h2{
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .trending_section div{
+        display: inline-block;
+    }
+    .trending_section div ul{
+        flex-wrap: nowrap;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+    .trending_section div ul li>button{
+        font-size: var(--font-size-body-lg);
+        margin-right: 1rem  /* 16/16 */;
+        white-space: nowrap;
+    }
+    .trending_section div>.arrow_button{
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    header{
+        position: absolute;
+        z-index: 99;
+        top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 18px;
+    }
+    header .main_menu{
+        display: none;
+    }
+    header>.home_btn>img{
+        width: 32px;
+        height: 32px;
+        margin-top: 10px;
+    }
+    main>.hero_section{
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        height: 94vh;
+        overflow: hidden;
+    }
+    main .button_container{
+        position: absolute;
+        z-index: 100;
+        bottom: 50px;
+        left: 18px;
+    }
+    main .button_container button{
+        border: 1px solid var(--color-white);
+        background: transparent;
+        border-radius: 50px;
+        padding: 10px 24px;
+        color: var(--color-white);
+        &:hover {
+            background-color: rgb(255 255 255 / 0.1);
+            color: var(--color-white);
+        }
+        margin-left: 6px;
+    }
+    .trending_section div ul li>button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 30px;
+        font-size: 1.5rem  /* 24/16 */;
+        font-weight: var(--font-weight-headline-lg-mobile);
+        color: var(--color-on-primary-container);
+        &:hover{
+            color: var(--color-primary);
+        }
+    }
+    .trending_section h2{
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .trending_section div{
+        display: inline-block;
+    }
+    .trending_section div ul{
+        flex-wrap: nowrap;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+    .trending_section div ul li>button{
+        font-size: var(--font-size-body-lg);
+        margin-right: 1rem  /* 16/16 */;
+        white-space: nowrap;
+    }
+    main>.hero_section .carousel .hero_video{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .slide{
+        width: 100%;
+        height: 100%;
+    }
+    .trending_section div>.arrow_button{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
