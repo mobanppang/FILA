@@ -182,38 +182,6 @@ main>.hero_section .carousel .slide .hero_video{
     display: flex;
 }
 
-/*.trending_section>ul{*/
-/*    display: flex;*/
-/*    padding-top: 20px;*/
-/*}*/
-
-/*.trending_section>ul.product_list_01{*/
-/*    display: flex;*/
-/*}*/
-/*.trending_section>ul.product_list_02{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_03{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_04{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_05{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_06{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_07{*/
-/*    display: none;*/
-/*}*/
-/*.trending_section>ul.product_list_08{*/
-/*    display: none;*/
-/*}*/
-.trending_section > ul[class^="product_list_"].active {
-    display: flex;
-}
 .trending_section>ul>li {
     display: flex;
     cursor: pointer;
@@ -580,7 +548,7 @@ footer hr{
         scrollbar-width: none;
     }
     .trending_section div ul li>button{
-        font-size: var(--font-size-body-lg);
+        font-size: clamp(15px, 2vw, 20px);
         margin-right: 1rem  /* 16/16 */;
         white-space: nowrap;
     }
@@ -772,6 +740,7 @@ footer hr{
     }
 
     /**************************************************************/
+
     .information1_section >div{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -781,6 +750,7 @@ footer hr{
     }
 
     /*************************************************************/
+
     .trending_section h2{
         font-size: clamp(2rem, 8vw, 3rem);
     }
@@ -830,86 +800,49 @@ footer hr{
         height: 32px;
         margin-top: 10px;
     }
+    header nav ul{
+        position: absolute;
+        top: 12px;
+        right: 54px;
+    }
+
 
     /****************************************************************/
 
-    main>.hero_section{
-        position: relative;
-        z-index: 0;
-        width: 100%;
+    main .hero_section{
         height: 94vh;
-        overflow: hidden;
     }
 
-    main>.hero_section .carousel{
+    /****************************************************/
+    .trending_section{
+        padding: 60px 0 48px 14px;
+    }
+    .trending_section > div{
+        width: 100%;
+    }
+    .trending_section > div > ul{
+        overflow-x: scroll;
+    }
+    .trending_section > div > ul li button{
+        font-size: 1.2rem;
+    }
+    .trending_section > ul{
+        overflow-x: scroll;
+    }
+    .trending_section>ul>li {
         display: flex;
-        flex-wrap: nowrap;
-        width: 100%;
-        height: 100%;
-    }
-    main>.hero_section .carousel .slide{
-        flex: 0 0 100%;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    main>.hero_section .carousel .slide .hero_video{
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center center;
-    }
-    main .button_container{
-        position: absolute;
-        z-index: 100;
-        bottom: 50px;
-        left: 18px;
-    }
-    .trending_section h2{
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-    main .button_container button{
-        border: 1px solid var(--color-white);
-        background: transparent;
-        border-radius: 50px;
-        padding: 10px 24px;
-        color: var(--color-white);
-        &:hover {
-            background-color: rgb(255 255 255 / 0.1);
-            color: var(--color-white);
-        }
-        margin-left: 6px;
-    }
-    .trending_section div ul li>button{
-        background-color: transparent;
-        border: none;
         cursor: pointer;
-        margin-right: 30px;
-        font-size: 1.5rem  /* 24/16 */;
-        font-weight: var(--font-weight-headline-lg-mobile);
-        color: var(--color-on-primary-container);
-        &:hover{
-            color: var(--color-primary);
-        }
+        width: 186px;
     }
-    .trending_section div{
-        display: inline-block;
-    }
-    .trending_section div ul{
-        flex-wrap: nowrap;
-        overflow: scroll;
-        scrollbar-width: none;
-    }
-    .trending_section div ul li>button{
-        font-size: var(--font-size-body-lg);
-        margin-right: 1rem  /* 16/16 */;
-        white-space: nowrap;
+    .trending_section ul .image_container{
+        width: 186px;
+        flex-shrink: 0;
     }
 
-    .trending_section div>.arrow_button{
-        display: none;
+    .trending_section ul li a strong{
+        font-size: var(--font-size-label-caps);
     }
+
 }
 
 
