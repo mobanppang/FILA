@@ -22,7 +22,7 @@
 
 /* root=html문서를 뜻함 */
 :root{
-    --main-y-padding: 100px;
+    --main-y-padding: 60px;
     --main-x-padding: 40px;
 }
 
@@ -100,7 +100,13 @@ header>nav>ul>li{
 header>nav>ul>li>a{
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.6em;
+}
+.mobile_menuIcon{
+    display: none;
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
 }
 /*****************************************************************************/
 
@@ -109,6 +115,8 @@ main>.hero_section{
     z-index: 0;
     width: 100%;
     height: 100vh;
+    min-height: 480px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
 }
 main .button_container{
@@ -130,10 +138,25 @@ main .button_container button{
     margin-left: 10px;
 }
 main>.hero_section .carousel{
-    display: inline-flex;
+    display: flex;
     flex-wrap: nowrap;
-    flex-shrink: 0;
+    width: 100%;
     height: 100%;
+}
+
+main>.hero_section .carousel .slide{
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+main>.hero_section .carousel .slide .hero_video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 /*****************************************************************************/
@@ -226,10 +249,10 @@ main>.hero_section .carousel{
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-right: 30px;
-    font-size: var(--font-size-headline-lg-mobile);
-    font-weight: var(--font-weight-headline-lg-mobile);
-    color: var(--color-on-primary-container);
+    margin-right: 20px;
+    font-size: var(--font-size-title-md);
+    font-weight: 700;
+    color: var(--color-inverse-primary);
     &:hover{
         color: var(--color-primary);
     }
@@ -263,7 +286,7 @@ main>.hero_section .carousel{
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 18em;
+    font-size: clamp(60px, 16vw, 260px);
     color: white;
 }
 .edit_section >.image_container{
@@ -291,7 +314,7 @@ main>.hero_section .carousel{
     margin-left: 5em;
 }
 .edit_section >.label_container a{
-    font-size: 3rem;
+    font-size: clamp(22px, 3vw, 52px);
     line-height: 1.5;
     color: var(--color-white);
     text-decoration: none;
@@ -382,6 +405,7 @@ main>.hero_section .carousel{
     object-fit: cover;
 }
 /****************************************************/
+
 .information3_section{
     padding: var(--main-y-padding) 0;
 }
@@ -396,8 +420,8 @@ main>.hero_section .carousel{
 }
 .information3_section .img_container img{
     width: 100%;
+    height: 100%;
 }
-
 
 /*************************************************************/
 .information4_section{
@@ -426,7 +450,8 @@ main>.hero_section .carousel{
     scrollbar-width: none;
 }
 .information4_section .slide_container > li{
-    flex-basis: 500px;
+    flex: 0 0 clamp(240px, 32vw, 500px);
+    /*flex-basis: 500px;*/
     flex-shrink: 0;
     cursor: pointer;
     overflow: auto;
@@ -438,7 +463,9 @@ main>.hero_section .carousel{
 }
 .information4_section .slide_container > li > img{
     width: 100%;
-    height: 700px;
+    /*height: 700px;*/
+    height: auto;
+    aspect-ratio: 5/7;
     object-fit: cover;
 }
 .information4_section .slide_wrapper{
@@ -526,11 +553,234 @@ footer hr{
     transform: translateY(0);
 }
 
-/****************************** 반응형 ****************************************/
-@media screen and (max-width: 1024px) {
 
+
+
+/****************************** 반응형 ****************************************/
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .trending_section div ul li>button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 30px;
+        /*font-size: 1.5rem  !* 24/16 *!;*/
+        font-weight: var(--font-weight-headline-lg-mobile);
+        color: var(--color-on-primary-container);
+        &:hover{
+            color: var(--color-primary);
+        }
+    }
+    .trending_section div ul{
+        flex-wrap: nowrap;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+    .trending_section div ul li>button{
+        font-size: var(--font-size-body-lg);
+        margin-right: 1rem  /* 16/16 */;
+        white-space: nowrap;
+    }
+    main .button_container{
+        position: absolute;
+        z-index: 100;
+    }
+    main .button_container button{
+        border: 1px solid var(--color-white);
+        background: transparent;
+        border-radius: 50px;
+        padding: 10px 28px;
+        color: var(--color-white);
+        &:hover {
+            background-color: rgb(255 255 255 / 0.1);
+            color: var(--color-white);
+        }
+        margin-left: 4px;
+    }
+    .arrow_button {
+        border: 1px solid var(--color-on-tertiary-container);
+        background-color: var(--color-white);
+        border-radius: 50px;
+        padding: 10px 28px;
+        color: var(--color-primary);
+        &:hover {
+            background-color: var(--color-on-secondary-fixed);
+            color: var(--color-on-tertiary);
+        }
+    }
+    /*****************************************************************************/
+
+    .edit_section{
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 60px 0;
+        background-color: #1a1c1c;
+        position: relative;
+    }
+    .edit_section>h2{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        font-size: clamp(60px, 16vw, 260px);
+        color: white;
+    }
+    .edit_section >.image_container{
+        position: relative;
+        flex: 1;
+    }
+    .edit_section .image_container >img.main{
+        width: 70%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .edit_section .image_container >img.sub{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        transform: translateY(-50%);
+    }
+    .edit_section >.label_container{
+        display: block;
+        align-items: center;
+        margin: 10px 0 0 var(--main-x-padding) ;
+    }
+    .edit_section >.label_container a{
+        font-size: 20px;
+        line-height: 1.5;
+        color: var(--color-white);
+        text-decoration: none;
+        margin-right: 10px;
+        &:hover{
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+        }
+    }
+    .edit_section >.label_container a:not(:last-child)::after{
+        content: ',';
+    }
+
+    /************************************************************************/
+
+    .information1_section{
+        padding: var(--main-y-padding) var(--main-x-padding);
+    }
+    .information1_section>h2{
+        font-size: 2.4em;
+        padding-bottom: 20px;
+    }
+    .information1_section >div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 500px;
+        gap: 16px;
+        position: relative;
+    }
+
+    .information1_section a{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .information1_section .information{
+        position: absolute;
+        /*left: 0;*/
+        /*right: 0;*/
+        width: 100%;
+        bottom: 0;
+        padding: 20px;
+        color: white;
+    }
+
+    .information1_section .information>h3{
+        font-size: 1.6rem;
+        padding-bottom: 10px;
+    }
+    .information1_section .information>p{
+        font-size: 0.9rem;
+    }
+
+    .information1_section button{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    /***********************************************/
+
+    .information2_section>div:first-child{
+        flex: 1;
+        padding: 50px 50px 50px 50px;
+    }
+    .information2_section>div>p.information{
+        font-size: 2rem;
+        color: var(--color-white);
+        padding-bottom: 40px;
+    }
+
+    /***********************************************/
+
+    .information3_section{
+        padding: var(--main-y-padding) 0;
+    }
+    .information3_section > p{
+        text-align: center;
+        font-size: var(--font-size-headline-lg-mobile);
+        margin-bottom: var(--main-y-padding);
+        line-height: 1.5;
+    }
+    .information3_section .img_container{
+        display: flex;
+    }
+    .information3_section .img_container img{
+        width: 100%;
+    }
+    /*************************************************************/
 }
+
 @media screen and (max-width: 768px) {
+    header nav ul{
+        position: absolute;
+        top: 28px;
+        right: 90px;
+    }
+    header nav ul li:first-child{
+        display: none;
+    }
+    header>.main_menu{
+        display: none;
+    }
+    .mobile_menuIcon{
+        display: block;
+    }
+    /*****************************************************************/
+
+    main .button_container{
+        position: absolute;
+        z-index: 100;
+        bottom: 30px;
+        right: 18px;
+    }
+
+    /**************************************************************/
+    .information1_section >div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 400px;
+        gap: 16px;
+        position: relative;
+    }
+
+    /*************************************************************/
     .trending_section h2{
         font-size: clamp(2rem, 8vw, 3rem);
     }
@@ -548,9 +798,18 @@ footer hr{
         white-space: nowrap;
     }
     .trending_section div>.arrow_button{
-        white-space: nowrap;
-        flex-shrink: 0;
+        display: none;
     }
+    /**************************************************************/
+
+
+    /************************************************************/
+
+    .information2_section>div>p.information{
+        font-size: 1.4rem;
+    }
+
+
 }
 @media screen and (max-width: 480px) {
     header{
@@ -571,6 +830,9 @@ footer hr{
         height: 32px;
         margin-top: 10px;
     }
+
+    /****************************************************************/
+
     main>.hero_section{
         position: relative;
         z-index: 0;
@@ -578,11 +840,34 @@ footer hr{
         height: 94vh;
         overflow: hidden;
     }
+
+    main>.hero_section .carousel{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 100%;
+    }
+    main>.hero_section .carousel .slide{
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    main>.hero_section .carousel .slide .hero_video{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
     main .button_container{
         position: absolute;
         z-index: 100;
         bottom: 50px;
         left: 18px;
+    }
+    .trending_section h2{
+        font-size: clamp(2rem, 8vw, 3rem);
     }
     main .button_container button{
         border: 1px solid var(--color-white);
@@ -608,9 +893,6 @@ footer hr{
             color: var(--color-primary);
         }
     }
-    .trending_section h2{
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
     .trending_section div{
         display: inline-block;
     }
@@ -624,15 +906,7 @@ footer hr{
         margin-right: 1rem  /* 16/16 */;
         white-space: nowrap;
     }
-    main>.hero_section .carousel .hero_video{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .slide{
-        width: 100%;
-        height: 100%;
-    }
+
     .trending_section div>.arrow_button{
         display: none;
     }
