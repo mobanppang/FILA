@@ -24,6 +24,8 @@
 :root{
     --main-y-padding: 60px;
     --main-x-padding: 40px;
+    --main-y-padding-sm: 38px;
+    --main-x-padding-sm: 16px;
 }
 
 .coupon_info_container{
@@ -171,21 +173,38 @@ main>.hero_section .carousel .slide .hero_video{
     /*padding-bottom: 20px;*/
 }
 .trending_section div>ul{
+    width: 100%;
     display: flex;
 }
 .trending_section > ul[class*="product_list_"] {
     display: none;
     padding-top: 20px;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 .trending_section > ul[class*="product_list_"].active {
     display: flex;
 }
+.trending_section > ul[class*="product_list_"].active {
+    cursor: grab;
+    user-select: none;
+}
+
+.trending_section > ul[class*="product_list_"].active.dragging {
+    cursor: grabbing;
+}
+
+.trending_section > ul[class*="product_list_"].active.dragging a {
+    pointer-events: none;
+}
 
 .trending_section>ul>li {
-    display: flex;
     cursor: pointer;
-    width: 400px;
+    overflow-x: auto;
+    flex: 0 0 clamp(220px, 22vw, 400px);
 }
 
 .trending_section>ul>li:not(:last-child){
@@ -209,7 +228,7 @@ main>.hero_section .carousel .slide .hero_video{
     padding-bottom: 4px;
 }
 .trending_section h2{
-    font-size: var(--font-size-display-lg);
+    font-size: clamp(48px, 1.5vw, 60px);
     font-weight: bold;
     padding-bottom: 10px;
 }
@@ -400,7 +419,7 @@ main>.hero_section .carousel .slide .hero_video{
     justify-content: space-between;
 }
 .information4_section>div>h2{
-    font-size: var(--font-size-display-lg);
+    font-size: clamp(48px, 1.5vw, 60px);
     padding-bottom: 20px;
 }
 .information4_section>div>button{
@@ -445,7 +464,7 @@ footer{
     background-color: #1b1b1b;
     color: var(--color-white);
     padding: var(--main-y-padding) var(--main-x-padding);
-    font-size: 0.8em;
+    font-size: 14px;
 }
 footer a{
     color: var(--color-white);
@@ -453,17 +472,15 @@ footer a{
 footer>div{
     display: flex;
     justify-content: space-between;
-    line-height: 2;
+    line-height: 1.5;
 }
 footer .site_nav{
     display: flex;
+    gap: clamp(20px, 15vw, 300px)
 }
 footer .site_nav h4{
     margin-bottom: 10px;
     font-size: 1.2em;
-}
-footer .site_nav>div{
-    width: 250px;
 }
 footer .site_nav ul{
     display: flex;
@@ -501,9 +518,22 @@ footer .user_information span{
 footer hr{
     margin: 40px 0;
 }
-.site_information{
+footer div .corp_information, .site_information{
+    font-size: 12px;
+}
+footer .site_information{
     text-align: right;
 }
+/************ 아코디언 푸터 ***********************/
+
+.accordion_footer div .site_nav details summary i{
+    transition: transform 0.3s ease;
+}
+
+.accordion_footer div .site_nav details summary[open] i{
+    transform: rotate(180deg);
+}
+
 
 /*********************** label_container 트렌지션 추가 ************************************/
 .edit_section > h2,
@@ -618,7 +648,7 @@ footer hr{
     .edit_section >.label_container{
         display: block;
         align-items: center;
-        margin: 10px 0 0 var(--main-x-padding) ;
+        margin: 10px var(--main-x-padding) 0 var(--main-x-padding) ;
     }
     .edit_section >.label_container a{
         font-size: 20px;
@@ -713,7 +743,49 @@ footer hr{
         width: 100%;
     }
     /*************************************************************/
+    footer{
+        font-size: 14px
+    }
+    footer>div{
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.5;
+        gap: 30px;
+    }
+    footer .sns_nav ul li{
+        margin-right: 16px;
+        font-size: 16px;
+    }
+    footer .sns_nav a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        /*border: 1px solid #4c4546;*/
+        border-radius: 50%;
+        text-decoration: none;
+    }
+
+    footer div .corp_information, .site_information{
+        display: block;
+        justify-content: space-between;
+        line-height: 1.5;
+        font-size: 10px;
+    }
+
+    /**************************************************************/
+
+    .modal_container .modal{
+        width: 100%;
+        height: 80%;
+    }
+    .modal_container .modal .form_section .product_container{
+        height: 440px;
+    }
 }
+
+
 
 @media screen and (max-width: 768px) {
     header nav ul{
@@ -745,7 +817,7 @@ footer hr{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 400px;
-        gap: 16px;
+        gap: 10px;
         position: relative;
     }
 
@@ -756,6 +828,8 @@ footer hr{
     }
     .trending_section div{
         display: inline-block;
+        width: 100%;
+        overflow: hidden;
     }
     .trending_section div ul{
         flex-wrap: nowrap;
@@ -772,15 +846,26 @@ footer hr{
     }
     /**************************************************************/
 
-
-    /************************************************************/
-
     .information2_section>div>p.information{
         font-size: 1.4rem;
     }
 
+    /************************************************************/
+
+    .information3_section > p{
+        font-size: clamp(18px, 2vw, 24px);
+    }
+
+    /**************************************************/
+    .information4_section div>h2{
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
 
 }
+@media screen and (max-width: 767px){
+
+}
+
 @media screen and (max-width: 480px) {
     header{
         position: absolute;
@@ -815,7 +900,7 @@ footer hr{
 
     /****************************************************/
     .trending_section{
-        padding: 60px 0 48px 14px;
+        padding: var(--main-y-padding-sm) 0 var(--main-y-padding-sm) var(--main-x-padding-sm);
     }
     .trending_section > div{
         width: 100%;
@@ -826,21 +911,101 @@ footer hr{
     .trending_section > div > ul li button{
         font-size: 1.2rem;
     }
-    .trending_section > ul{
-        overflow-x: scroll;
-    }
-    .trending_section>ul>li {
-        display: flex;
-        cursor: pointer;
-        width: 186px;
-    }
-    .trending_section ul .image_container{
-        width: 186px;
-        flex-shrink: 0;
-    }
 
     .trending_section ul li a strong{
         font-size: var(--font-size-label-caps);
+    }
+
+    /*********************************************/
+
+    .edit_section{
+        padding: var(--main-y-padding-sm) 0;
+    }
+
+    .edit_section >.label_container{
+        display: flex;
+        flex: 1;
+        align-items: center;
+    }
+
+    /****************************************************/
+    .information1_section{
+        padding: var(--main-y-padding-sm) var(--main-x-padding-sm);
+    }
+    .information1_section >div{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        gap: 10px;
+        position: static;
+    }
+
+    .information1_section a{
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .information1_section .information{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+        color: white;
+    }
+
+    .information1_section button{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    /*************************************************/
+
+    .information2_section{
+        display: block;
+        background-color: var(--color-black);
+        /*margin: 0 40px;*/
+        position: relative;
+    }
+    .information2_section img.logo{
+        width: 40px;
+        height: 40px;
+        padding-bottom: 0;
+    }
+
+    .information2_section>div:first-child{
+        flex: 1;
+        padding: var(--main-x-padding-sm);
+    }
+    .information2_section>div>p.information{
+        font-size: 18px;
+        color: var(--color-white);
+        padding: 16px 0;
+    }
+    .information2_section>div:last-child{
+        flex: 1;
+    }
+    .information2_section>div:last-child img{
+        display: block;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 4 / 3;
+    }
+
+
+    /********************************************/
+    .information3_section > p{
+        font-size: clamp(16px, 1vw, 24px);
+        line-height: 1.5;
     }
 
 }
