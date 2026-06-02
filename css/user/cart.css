@@ -1,3 +1,11 @@
+:root{
+    --main-y-padding: 50px;
+    --main-y-padding-sm: 20px;
+    --main-x-padding: 60px;
+    --main-margin-sm: 10px;
+    --main-margin-md: 50px;
+}
+
 input[type="checkbox"]{
     accent-color: black;
     width: 20px;
@@ -8,7 +16,6 @@ input[type="checkbox"]{
 .check_label{
     display: flex;
     align-items: center;
-    gap: 6px;
     cursor: pointer;
 }
 
@@ -38,11 +45,14 @@ input[type="checkbox"]{
 /*************************************************************/
 
 main{
-    padding: 0 300px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 var(--main-y-padding-sm);
 }
 main h1{
     font-weight: 400;
-    padding: 20px 0;
+    padding: 20px 0 var(--main-y-padding);
     /*border-bottom: 1px solid var(--color-inverse-primary);*/
 }
 main .cart_actions{
@@ -81,7 +91,7 @@ main .cart_section{
 }
 .cart_item .check_container button{
     padding: 0 0 0 10px;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--color-primary-fixed);
 }
 .cart_item .check_container button i.fa-x{
@@ -93,7 +103,7 @@ main .cart_section{
 }
 .cart_item .item_container .item_img a{
     display: block;
-    width: 200px;
+    width: 180px;
     height: 100%;
     aspect-ratio: 1 / 1;
 }
@@ -153,9 +163,75 @@ main .cart_section{
     padding-right: 10px;
     margin: 0 10px 0 14px;
 }
-.cart_section .cart_order{
-    flex: 1;
-}
 .cart_section .cart_item li{
     border-top: 1px solid var(--color-inverse-primary);
 }
+
+/*********************************************************************************/
+
+.cart_section .cart_order{
+    flex: 1;
+}
+.cart_order div table{
+    width: 100%;
+    background-color: var(--color-primary-fixed-more);
+    padding: 32px;
+}
+.cart_order div table tr{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.cart_order div table tr:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-inverse-primary);
+}
+.cart_order div table tr:nth-child(4){
+    font-size: 20px;
+    font-weight: bold;
+    border-top: 1px solid var(--color-inverse-primary);
+    border-bottom: 1px solid var(--color-inverse-primary);
+}
+.cart_order div table tr td:first-child{
+    /*font-weight: 600;*/
+}
+.cart_section .cupon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-inverse-primary);
+    border-bottom: 1px solid var(--color-inverse-primary);
+    padding: 20px 0;
+    margin: 30px 0;
+    cursor: pointer;
+}
+.cart_section .cupon button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+}
+.cart_section .notice_text p{
+    font-size: 14px;
+    color: var(--color-inverse-surface);
+    padding-bottom: 8px;
+}
+.cart_section div .order_btn{
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+
+
+
+
