@@ -73,6 +73,36 @@ function carousel_mouse_up(e){
         }
     }
 }
+const videos = document.querySelectorAll(".hero_video");
+
+function pauseAll() {
+    videos.forEach(v => {
+        v.pause();
+    });
+}
+
+function playVideo(index) {
+    const v = videos[index];
+    if (!v) return;
+
+    v.pause();
+    v.currentTime = 0;
+
+    const p = v.play();
+    if (p !== undefined) {
+        p.catch(() => {
+            console.log("iOS autoplay blocked");
+        });
+    }
+}
+
+swiper.on("slideChangeTransitionStart", () => {
+    pauseAll();
+});
+
+swiper.on("slideChangeTransitionEnd", () => {
+    playVideo(swiper.realIndex);
+});
 
 carouselContainer.onmousedown = carousel_mouse_down;
 carouselContainer.onmouseup = carousel_mouse_up;
