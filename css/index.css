@@ -1060,6 +1060,14 @@ footer .site_information{
         line-height: 1.5;
     }
 
+    .information4_section{
+        padding: 0 var(--main-x-padding-sm) var(--main-y-padding-sm) ;
+    }
+
+    .accordion_footer{
+        padding: var(--main-y-padding-sm) var(--main-x-padding-sm);
+    }
+
 }
 
 
