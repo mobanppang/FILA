@@ -139,3 +139,24 @@
     </main>
 </body>
 </html>
+
+
+<script>
+    const selectAll = document.querySelector('.cart_actions input[type="checkbox"]');
+    const itemCheckboxes = document.querySelectorAll('.cart_item input[type="checkbox"]');
+
+    // 1) 전체 선택 클릭 → 모든 체크박스 반영
+    selectAll.addEventListener('change', () => {
+        itemCheckboxes.forEach(cb => {
+            cb.checked = selectAll.checked;
+        });
+    });
+
+    // 2) 개별 체크 변경 → 전체 선택 상태 업데이트
+    itemCheckboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked);
+            selectAll.checked = allChecked;
+        });
+    });
+</script>

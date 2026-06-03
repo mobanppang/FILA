@@ -525,15 +525,22 @@ footer .site_information{
     text-align: right;
 }
 /************ 아코디언 푸터 ***********************/
-.accordion_footer div{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.accordion_footer{
+    display: none;
 }
+
 .accordion_footer .site_nav{
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.accordion_footer .sns_nav{
+    margin-top: 20px;
+}
+.accordion_footer>div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .site_nav details{
     border-bottom: 1px solid var(--color-on-tertiary-fixed-variant);
@@ -549,6 +556,29 @@ footer .site_information{
 
 .accordion_footer details[open] summary i{
     transform: rotate(180deg);
+}
+.accordion_footer .corp_information,
+.accordion_footer .site_information{
+    font-size: 12px;
+}
+.accordion_footer .corp_information > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion_footer .corp_information > div > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.accordion_footer .corp_information > div > ul li:not(:last-child){
+    border-right: 1px solid var(--color-on-tertiary-fixed-variant);
+    padding-right: 8px;
+}
+.accordion_footer .site_information{
+    text-align: left;
+    line-height: 2;
+    margin-top: 10px;
 }
 
 
@@ -880,7 +910,12 @@ footer .site_information{
 
 }
 @media screen and (max-width: 767px){
-
+    .pc_footer{
+        display: none;
+    }
+    .accordion_footer{
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
