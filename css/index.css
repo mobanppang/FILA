@@ -40,6 +40,7 @@
     font-size: var(--font-size-label-caps);
     font-weight: 700;
     letter-spacing: 1px;
+    display: none;
 }
 .coupon_info_container>button{
     line-height: 32px;

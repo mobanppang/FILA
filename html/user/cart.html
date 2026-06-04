@@ -50,7 +50,7 @@
                                     <span>1</span>
                                     <button class="plus" type="button"><i class="fa-solid fa-plus"></i></button>
                                 </div>
-                                <span>109,000</span>
+                                <span class="price" data-price="109000">109,000</span>
                             </div>
                         </div>
                         <div class="delivery">
@@ -83,7 +83,7 @@
                                     <span>1</span>
                                     <button class="plus" type="button"><i class="fa-solid fa-plus"></i></button>
                                 </div>
-                                <span>39,900</span>
+                                <span class="price" data-price="39900">39,900</span>
                             </div>
                         </div>
                         <div class="delivery">
@@ -159,4 +159,83 @@
             selectAll.checked = allChecked;
         });
     });
+
+    const cartItems = document.querySelectorAll('.cart_item > li');
+
+    // 주문 정보 영역
+    const productCountTd = document.querySelector(
+        '.cart_order tr:nth-child(1) td:last-child'
+    );
+
+    const productTotalTd = document.querySelector(
+        '.cart_order tr:nth-child(2) td:last-child'
+    );
+
+    const paymentTotalTd = document.querySelector(
+        '.cart_order tr:nth-child(4) td:last-child'
+    );
+
+    // 장바구니 계산
+    function updateCart() {
+        let totalQty = 0;
+        let totalPrice = 0;
+
+        cartItems.forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            const qtySpan = item.querySelector('.qty_control span');
+            const priceSpan = item.querySelector('.price');
+
+            const qty = Number(qtySpan.innerText);
+            const unitPrice = Number(priceSpan.dataset.price);
+
+            const itemTotal = unitPrice * qty;
+
+            // 상품 금액 표시
+            priceSpan.innerText = itemTotal.toLocaleString();
+
+            // 체크된 상품만 합산
+            if (checkbox.checked) {
+                totalQty += qty;
+                totalPrice += itemTotal;
+            }
+        });
+
+        // 주문 정보 갱신
+        productCountTd.innerText = `${totalQty} 제품`;
+        productTotalTd.innerText = `${totalPrice.toLocaleString()}원`;
+        paymentTotalTd.innerText = `${totalPrice.toLocaleString()}원`;
+    }
+
+    // + 버튼
+    document.querySelectorAll('.plus').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const qtySpan = btn.parentElement.querySelector('span');
+
+            qtySpan.innerText = Number(qtySpan.innerText) + 1;
+
+            updateCart();
+        });
+    });
+
+    // - 버튼
+    document.querySelectorAll('.minus').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const qtySpan = btn.parentElement.querySelector('span');
+
+            let qty = Number(qtySpan.innerText);
+
+            if (qty > 1) {
+                qtySpan.innerText = qty - 1;
+                updateCart();
+            }
+        });
+    });
+
+    // 체크박스 변경
+    document.querySelectorAll('.check_label input').forEach(check => {
+        check.addEventListener('change', updateCart);
+    });
+
+    // 첫 화면 계산
+    updateCart();
 </script>

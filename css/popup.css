@@ -7,7 +7,7 @@
     z-index: 99;
     position: fixed;
     display: flex;
-    display: none;
+    /*display: none;*/
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -134,4 +134,25 @@
     border-radius: 50px;
     font-size: 18px;
     font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+    .modal_container{
+        top: 0;
+        z-index: 99;
+        position: fixed;
+        display: flex;
+        /*display: none;*/
+        justify-content: center;
+        align-items: start;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-white);
+    }
+
+    .modal{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-white);
+    }
 }
