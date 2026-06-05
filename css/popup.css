@@ -1,13 +1,21 @@
 :root{
     --modal-form-pading: 30px
 }
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    accent-color: var(--color-black);
+}
+
+/****************************************************/
 
 .modal_container{
     top: 0;
     z-index: 99;
     position: fixed;
     display: flex;
-    /*display: none;*/
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -22,6 +30,14 @@
 }
 .modal>section{
     flex: 1;
+}
+.img_section >.close_button{
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 .modal .img_section>img{
     width: 100%;
@@ -50,16 +66,11 @@
     cursor: pointer;
     font-size: 1.5rem;
 }
-.modal .form_section .select_container input[type="checkbox"]{
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    accent-color: #ff5722;
-}
+
 /**************************************************/
 .modal .form_section .product_container{
     padding: var(--modal-form-pading);
-    height: 500px;
+    height: 470px;
     overflow-y: scroll;
 }
 .modal .form_section .product_container li{
@@ -122,7 +133,8 @@
     font-size: var(--font-size-title-md);
 }
 .modal .submit_container{
-    padding: 0 var(--modal-form-pading);
+    padding: 0 var(--modal-form-pading) 16px;
+    background-color: var(--color-white);
 }
 .modal .submit_container>button{
     display: block;
@@ -135,24 +147,46 @@
     font-size: 18px;
     font-weight: bold;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 750px) {
     .modal_container{
         top: 0;
         z-index: 99;
         position: fixed;
         display: flex;
-        /*display: none;*/
+        display: none;
         justify-content: center;
         align-items: start;
         width: 100vw;
         height: 100vh;
         background-color: var(--color-white);
+        overflow-y: scroll;
     }
-
     .modal{
         display: block;
         width: 100%;
         height: 100%;
         background-color: var(--color-white);
+    }
+    .img_section >.close_button{
+        display: block;
+    }
+    .select_container >.close_button{
+        display: none;
+    }
+
+    .modal .form_section .product_container{
+        padding: var(--modal-form-pading);
+        height: 100%;
+        overflow-y: none;
+    }
+    .modal .total_price_container{
+        display: flex;
+        justify-content: space-between;
+        padding: var(--modal-form-pading);
+        font-size: var(--font-size-title-md);
+    }
+
+    .modal_container .modal .form_section .product_container{
+        height: 440px;
     }
 }

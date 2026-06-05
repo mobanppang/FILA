@@ -50,3 +50,27 @@ body .notice_popup .checkbox-container label{
     font-size: var(--font-size-body-sm);
     color: var(--color-surface-tint);
 }
+
+/***********************************************************/
+
+@media screen and (max-width: 750px){
+    .modal_container_notice{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .notice_popup{
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 340px;
+        height: 470px;
+
+        right: auto;
+        bottom: auto;
+    }
+}

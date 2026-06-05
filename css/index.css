@@ -824,13 +824,6 @@ footer .site_information{
 
     /**************************************************************/
 
-    .modal_container .modal{
-        width: 100%;
-        height: 80%;
-    }
-    .modal_container .modal .form_section .product_container{
-        height: 440px;
-    }
 }
 
 
@@ -1068,6 +1061,9 @@ footer .site_information{
     .accordion_footer{
         padding: var(--main-y-padding-sm) var(--main-x-padding-sm);
     }
+
+
+
 
 }
 
