@@ -177,7 +177,7 @@ input[type="checkbox"]{
     .modal .form_section .product_container{
         padding: var(--modal-form-pading);
         height: 100%;
-        overflow-y: none;
+        /*overflow-y: none;*/
     }
     .modal .total_price_container{
         display: flex;

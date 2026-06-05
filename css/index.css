@@ -176,6 +176,8 @@ main>.hero_section .carousel .slide .hero_video{
 .trending_section div>ul{
     width: 100%;
     display: flex;
+    overflow-x: auto;
+
 }
 .trending_section > ul[class*="product_list_"] {
     display: none;
@@ -204,8 +206,8 @@ main>.hero_section .carousel .slide .hero_video{
 
 .trending_section>ul>li {
     cursor: pointer;
-    overflow-x: auto;
     flex: 0 0 clamp(220px, 22vw, 400px);
+    overflow: visible;
 }
 
 .trending_section>ul>li:not(:last-child){
@@ -959,7 +961,7 @@ footer .site_information{
     }
 
     .trending_section ul li a strong{
-        font-size: var(--font-size-label-caps);
+        font-size: var(--font-size-body-lg);
     }
 
     /*********************************************/
@@ -1061,8 +1063,6 @@ footer .site_information{
     .accordion_footer{
         padding: var(--main-y-padding-sm) var(--main-x-padding-sm);
     }
-
-
 
 
 }

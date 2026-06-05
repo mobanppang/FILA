@@ -21,7 +21,7 @@
                     <input type="checkbox" checked>전체
                 </label>
                 <button class="delete selected" type="button">선택삭제</button>
-                <button class="delete soldou" type="button">품절삭제</button>
+                <button class="delete soldout" type="button">품절삭제</button>
             </div>
             <section class="cart_section">
                 <ul class="cart_item">
@@ -58,7 +58,7 @@
                             <span>06월08일(월) 이내 발송예정</span>
                         </div>
                     </li>
-                    <li>
+                    <li class="soldout">
                         <div class="check_container">
                             <label class="check_label">
                                 <input type="checkbox" checked>
@@ -143,24 +143,41 @@
 
 <script>
     const selectAll = document.querySelector('.cart_actions input[type="checkbox"]');
-    const itemCheckboxes = document.querySelectorAll('.cart_item input[type="checkbox"]');
+    const cartList = document.querySelector('.cart_item');
+    const selectedDeleteButton = document.querySelector('.delete.selected');
+    const soldoutDeleteButton = document.querySelector('.delete.soldout');
 
-    // 1) 전체 선택 클릭 → 모든 체크박스 반영
+    function getCartItems() {
+        return Array.from(document.querySelectorAll('.cart_item > li'));
+    }
+
+    function getItemCheckboxes() {
+        return Array.from(document.querySelectorAll('.cart_item > li input[type="checkbox"]'));
+    }
+
+    function updateSelectAll() {
+        const itemCheckboxes = getItemCheckboxes();
+        const checkedCount = itemCheckboxes.filter(cb => cb.checked).length;
+
+        selectAll.checked = itemCheckboxes.length > 0 && checkedCount === itemCheckboxes.length;
+        selectAll.indeterminate = checkedCount > 0 && checkedCount < itemCheckboxes.length;
+    }
+
     selectAll.addEventListener('change', () => {
-        itemCheckboxes.forEach(cb => {
+        getItemCheckboxes().forEach(cb => {
             cb.checked = selectAll.checked;
         });
+
+        selectAll.indeterminate = false;
+        updateCart();
     });
 
-    // 2) 개별 체크 변경 → 전체 선택 상태 업데이트
-    itemCheckboxes.forEach(cb => {
-        cb.addEventListener('change', () => {
-            const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked);
-            selectAll.checked = allChecked;
-        });
-    });
+    cartList.addEventListener('change', event => {
+        if (!event.target.matches('input[type="checkbox"]')) return;
 
-    const cartItems = document.querySelectorAll('.cart_item > li');
+        updateSelectAll();
+        updateCart();
+    });
 
     // 주문 정보 영역
     const productCountTd = document.querySelector(
@@ -180,10 +197,15 @@
         let totalQty = 0;
         let totalPrice = 0;
 
-        cartItems.forEach(item => {
+        getCartItems().forEach(item => {
             const checkbox = item.querySelector('input[type="checkbox"]');
             const qtySpan = item.querySelector('.qty_control span');
             const priceSpan = item.querySelector('.price');
+            const isSoldout = item.classList.contains('soldout');
+
+            if (isSoldout) {
+                qtySpan.innerText = 1;
+            }
 
             const qty = Number(qtySpan.innerText);
             const unitPrice = Number(priceSpan.dataset.price);
@@ -193,8 +215,8 @@
             // 상품 금액 표시
             priceSpan.innerText = itemTotal.toLocaleString();
 
-            // 체크된 상품만 합산
-            if (checkbox.checked) {
+            // 체크되어 있고 품절이 아닌 상품만 합산
+            if (checkbox.checked && !isSoldout) {
                 totalQty += qty;
                 totalPrice += itemTotal;
             }
@@ -206,9 +228,66 @@
         paymentTotalTd.innerText = `${totalPrice.toLocaleString()}원`;
     }
 
+    function removeCartItem(item) {
+        if (!item) return;
+
+        item.remove();
+        updateSelectAll();
+        updateCart();
+    }
+
+    function handleSoldoutQtyButton(button) {
+        const item = button.closest('.cart_item > li');
+
+        if (!item.classList.contains('soldout')) return false;
+
+        const shouldDelete = confirm('품절 상품은 수량을 변경할 수 없습니다. 해당 품절 상품을 삭제하시겠습니까?');
+
+
+        if (shouldDelete) {
+            removeCartItem(item);
+        }
+
+        return true;
+    }
+
+    selectedDeleteButton.addEventListener('click', () => {
+        getCartItems().forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+
+            if (checkbox.checked) {
+                item.remove();
+            }
+        });
+
+        updateSelectAll();
+        updateCart();
+    });
+
+    soldoutDeleteButton.addEventListener('click', () => {
+        getCartItems().forEach(item => {
+            if (item.classList.contains('soldout')) {
+                item.remove();
+            }
+        });
+
+        updateSelectAll();
+        updateCart();
+    });
+
+    cartList.addEventListener('click', event => {
+        const button = event.target.closest('button');
+
+        if (!button || !button.querySelector('.fa-x')) return;
+
+        removeCartItem(button.closest('.cart_item > li'));
+    });
+
     // + 버튼
     document.querySelectorAll('.plus').forEach(btn => {
         btn.addEventListener('click', () => {
+            if (handleSoldoutQtyButton(btn)) return;
+
             const qtySpan = btn.parentElement.querySelector('span');
 
             qtySpan.innerText = Number(qtySpan.innerText) + 1;
@@ -220,6 +299,8 @@
     // - 버튼
     document.querySelectorAll('.minus').forEach(btn => {
         btn.addEventListener('click', () => {
+            if (handleSoldoutQtyButton(btn)) return;
+
             const qtySpan = btn.parentElement.querySelector('span');
 
             let qty = Number(qtySpan.innerText);
@@ -231,11 +312,7 @@
         });
     });
 
-    // 체크박스 변경
-    document.querySelectorAll('.check_label input').forEach(check => {
-        check.addEventListener('change', updateCart);
-    });
-
     // 첫 화면 계산
+    updateSelectAll();
     updateCart();
 </script>
