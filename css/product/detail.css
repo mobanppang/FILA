@@ -76,11 +76,16 @@
     justify-content: center;
     /*align-items: center;*/
 }
+#main > .info_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #main .information{
     position: absolute;
     width: 30%;
-    top: 25%;
+    /*top: 25%;*/
     /*background-color: chartreuse;*/
 }
 #main .information .header{
@@ -88,7 +93,7 @@
     justify-content: space-between;
 }
 #main .information .title > h1{
-    font-size: 3em;
+    font-size: clamp(24px, 4vw, 50px);
     font-weight: 500;
     margin-bottom: 50px;
 }
@@ -424,6 +429,7 @@ section > h2{
     border-bottom: 1px solid var(--color-inverse-on-surface);
     padding: 0 0 50px;
     /*margin-bottom: 20px;*/
+    overflow-x: auto;
 }
 #review .photo_video > .header{
     display: flex;
@@ -434,6 +440,10 @@ section > h2{
     display: grid;
     grid-template-columns: repeat(12, minmax(100px, 1fr));
     gap: 10px;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 #review .photo_video ul .img_container{
     aspect-ratio: 1/1;
@@ -617,4 +627,142 @@ section > h2{
     font-size: 13px;
 }
 
-/*********************************************/
+
+
+/******************** 반응형 *************************/
+
+@media screen and (max-width: 768px){
+    #main{
+        display: block;
+        height: auto;
+    }
+    #main > div{
+        height: 70vh;
+        /*background-color: beige;*/
+        overflow: hidden;
+    }
+
+    #main > div > img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+    #main > .info_container{
+        display: block;
+        height: auto;
+        align-items: inherit;
+    }
+    #main .information{
+        position: static;
+        width: 100%;
+        top: 0;
+        padding: 20px 30px 0;
+        /*background-color: chartreuse;*/
+    }
+    #main .information .header{
+        display: flex;
+        justify-content: space-between;
+    }
+    #main .information .title > h1{
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    #main .accordion{
+        margin: 14px 0;
+    }
+    #main .accordion .header{
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    #main .information .cart{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 20px 30px;
+        z-index: 9;
+        background-color: var(--color-white);
+    }
+    #main .information .cart > button{
+        /*position: fixed;*/
+        max-width: 100%;
+        font-size: 16px;
+        bottom: 20px;
+        padding: 12px 24px;
+    }
+    #main .information .group li{
+        /*background-color: #93000a;*/
+        display: inline-block;
+        list-style: none;
+        margin-bottom: 0;
+        width: 56px;
+        height: 56px;
+        &:first-child{
+            border-bottom: 1px solid black;
+        }
+    }
+    #main .information .group li img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #detail{
+        display: block;
+        padding: 20px 30px;
+    }
+    #detail .img_container{
+        position: static;
+    }
+    #detail .information{
+        /*position: static;*/
+        width: 100%;
+        top: 0;
+        padding: 20px 0 0 0;
+    }
+    #detail .information .product_information p{
+        font-size: 14px;
+    }
+    #detail .information .accordion .body{
+        padding: 10px 0;
+    }
+    #detail .information .accordion .fit_spac_guide{
+        padding: 0;
+    }
+    #checkmodel{
+        background-color: var(--color-black);
+        color: var(--color-white);
+        padding: 20px 30px;
+    }
+    #checkpoint .card{
+        display: inline-block;
+        width: 470px;
+        margin: 0 20px 100px 0;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    #checkpoint .card h3{
+        font-size: 20px;
+    }
+    #checkpoint .card p{
+        font-size: 14px;
+    }
+    #model_cut p{
+        font-size: 12px;
+    }
+    #model_cut div > div{
+        display: block;
+    }
+    #model_cut .card{
+        display: inline-block;
+        width: 470px;
+        margin: 0 20px 100px 0;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}

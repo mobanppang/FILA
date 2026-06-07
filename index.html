@@ -90,7 +90,7 @@
             </div>
             <ul class="active product_list_01">
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_90618479-77b2-4408-b6ff-497c7df6d921.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_359118b1-f557-4b60-a9b3-a90d7b6d91bd.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_9103c185-7097-497a-9c82-b43528c4e5e2.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -120,7 +120,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_bd5a820c-82a8-4afc-8174-4f1bf8dc9295.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -130,7 +130,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_efba4037-6c6a-4b09-8da9-3f82b732a220.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -140,7 +140,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_efba4037-6c6a-4b09-8da9-3f82b732a220.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -150,7 +150,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_efba4037-6c6a-4b09-8da9-3f82b732a220.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -160,7 +160,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="html/product/product.html">
+                    <a href="html/product/detail.html">
                         <div class="image_container">
                             <img src="img/trending%20now/01_efba4037-6c6a-4b09-8da9-3f82b732a220.webp" alt="마이티셔츠 유니 세이오버핏">
                         </div>
@@ -1051,7 +1051,11 @@
             didDrag = true;
             productList.classList.add('dragging');
             event.preventDefault();
-            productList.scrollLeft = startScrollLeft - moveX;
+            // productList.scrollLeft = startScrollLeft - moveX;
+            const activeProductList = getActiveProductList();
+
+            activeProductList.style.scrollBehavior = 'smooth';
+            activeProductList.scrollLeft += 900;
         });
 
         productList.addEventListener('click', function (event) {

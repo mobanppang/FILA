@@ -25,7 +25,7 @@ input[type="checkbox"]{
 .modal{
     display: flex;
     width: 1000px;
-    height: 80%;
+    height: 720px;
     background-color: var(--color-white);
 }
 .modal>section{
@@ -39,12 +39,8 @@ input[type="checkbox"]{
     font-size: 1.5rem;
     cursor: pointer;
 }
+
 .modal .img_section>img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.modal .image_section > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -68,6 +64,7 @@ input[type="checkbox"]{
 }
 
 /**************************************************/
+
 .modal .form_section .product_container{
     padding: var(--modal-form-pading);
     height: 470px;
@@ -134,7 +131,6 @@ input[type="checkbox"]{
 }
 .modal .submit_container{
     padding: 0 var(--modal-form-pading) 16px;
-    background-color: var(--color-white);
 }
 .modal .submit_container>button{
     display: block;
@@ -147,6 +143,9 @@ input[type="checkbox"]{
     font-size: 18px;
     font-weight: bold;
 }
+
+/****************** 반응형 ********************/
+
 @media screen and (max-width: 750px) {
     .modal_container{
         top: 0;

@@ -96,13 +96,13 @@ function playVideo(index) {
     }
 }
 
-swiper.on("slideChangeTransitionStart", () => {
-    pauseAll();
-});
-
-swiper.on("slideChangeTransitionEnd", () => {
-    playVideo(swiper.realIndex);
-});
+// swiper.on("slideChangeTransitionStart", () => {
+//     pauseAll();
+// });
+//
+// swiper.on("slideChangeTransitionEnd", () => {
+//     playVideo(swiper.realIndex);
+// });
 
 carouselContainer.onmousedown = carousel_mouse_down;
 carouselContainer.onmouseup = carousel_mouse_up;
