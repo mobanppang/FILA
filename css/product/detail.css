@@ -581,7 +581,7 @@ section > h2{
 }
 #review .reviews .items .item .actions_btn{
     display: flex;
-    gap: 10px;
+    /*gap: 10px;*/
     margin-top: 16px;
     align-items: flex-end;
     gap: 4px;
@@ -765,4 +765,49 @@ section > h2{
             margin-right: 0;
         }
     }
+    #review h2{
+        text-align: center;
+    }
+    #review > button{
+        display: block;
+        margin: 0 auto;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        font-size: var(--font-size-body-sm);
+        font-weight: 900;
+        padding: 14px 100px;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    #review{
+        padding: 20px 30px;
+    }
+    #review h2{
+        text-align: center;
+    }
+    #review > button{
+        display: block;
+        margin: 0 auto;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        font-size: var(--font-size-body-sm);
+        font-weight: 900;
+        padding: 14px 100px;
+        border-radius: 4px;
+    }
+    #review .filter > div:first-child{
+        display: block;
+    }
+    #review .reviews .items .item{
+        display: block;
+        padding: var(--main-y-padding-sm) 0;
+    }
+    #review .reviews .items .item .review_info{
+        flex: 1;
+        border-left: 1px solid var(--color-inverse-primary);
+        padding-left: 0;
+    }
+
 }

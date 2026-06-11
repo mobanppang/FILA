@@ -1026,6 +1026,7 @@
         function endDrag() {
             isMouseDown = false;
             productList.classList.remove('dragging');
+            productList.style.scrollBehavior = '';
 
             setTimeout(function () {
                 didDrag = false;
@@ -1039,6 +1040,7 @@
             didDrag = false;
             startX = event.pageX;
             startScrollLeft = productList.scrollLeft;
+            productList.style.scrollBehavior = 'auto';
         });
 
         productList.addEventListener('mousemove', function (event) {
@@ -1051,11 +1053,7 @@
             didDrag = true;
             productList.classList.add('dragging');
             event.preventDefault();
-            // productList.scrollLeft = startScrollLeft - moveX;
-            const activeProductList = getActiveProductList();
-
-            activeProductList.style.scrollBehavior = 'smooth';
-            activeProductList.scrollLeft += 900;
+            productList.scrollLeft = startScrollLeft - moveX;
         });
 
         productList.addEventListener('click', function (event) {
